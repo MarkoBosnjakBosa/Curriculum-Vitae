@@ -1,0 +1,148 @@
+doctype html
+html
+  head
+    title Skills
+    meta(name="description", content="Curriculum Vitae")
+    meta(name="author", content="Marko Bošnjak")
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(href=url + "/images/fav/favicon.ico", rel="icon", type="image/x-icon")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.10.2/css/all.css")
+    link(rel="stylesheet", href="../css/user/defaultStyle.css")
+    link(rel="stylesheet", href="../css/user/darkStyle.css")
+    script(src="https://code.jquery.com/jquery-3.4.1.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+    script(src="../handlers/user/frontendHandlers.js")
+    script(src="../handlers/user/plugins.js")
+  body.bg-triangles
+    div.preloader
+      div.preloader__wrap
+        div.circle-pulse
+          div.circle-pulse__1
+          div.circle-pulse__2
+        div.preloader__progress
+          span
+    main.main
+      div.container.gutter-top
+        div.row.sticky-parent
+          aside.col-12.col-md-12.col-xl-3
+            div.sidebar.box.shadow.pb-0.sticky-column.boxStyle
+              div.avatar
+                img.profilePicture(src=admin.profilePicture, alt="Profile picture")
+              div.text-center
+                h3.title.title--h3.sidebar__user-name
+                  b #{admin.firstName} #{admin.lastName}
+                div.badge.badge--dark #{admin.profession}
+                div.social
+                  a.social__link(href=admin.linkedIn, target="_blank")
+                    i.fab.fa-linkedin-in
+                  a.social__link(href=admin.xing, target="_blank")
+                    i.fab.fa-xing
+                  a.social__link(href=admin.github, target="_blank")
+                    i.fab.fa-github
+                div
+                  a(href=url + "/skills/en")
+                    img.flag(src=url + "/images/flags/americanFlag.png", alt="American flag")
+                  a(href=url + "/skills/de")
+                    img.flag(src=url + "/images/flags/germanFlag.png", alt="German flag")
+                div.sidebar__info.box-inner
+                  ul.contacts-block
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Birthday")
+                      span.iconSpan
+                        i.far.fa-calendar-alt
+                      span.infoSpan #{admin.birthday}
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Address")
+                      span.iconSpan
+                        i.fas.fa-map-marker-alt
+                      span.infoSpan #{admin.location}
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="E-mail")
+                        span.iconSpan
+                          i.fas.fa-envelope
+                        span.infoSpan
+                          a(href="mailto:" + admin.email) #{admin.email}
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Telephone")
+                      span.iconSpan
+                        i.fas.fa-phone
+                      span.infoSpan #{admin.telephone}
+                  a.btn(href=url + "/downloadCV/en")
+                    i.font-icon.icon-download
+                    span Download CV
+          div.col-12.col-md-12.col-xl-9
+            div.box.shadow.pb-0
+              div.circle-menu
+                div.hamburger
+                  div.line
+                  div.line
+                  div.line
+              div.inner-menu.js-menu
+                ul.nav
+                  li.nav__item
+                    a.active(href=url + "/en") About
+                  li.nav__item
+                    a.active(href=url + "/resume/en") Resume
+                  li.nav__item
+                    a.active(href=url + "/skills/en") Skills
+                  li.nav__item
+                    a.active(href=url + "/portfolio/en") Portfolio
+                  li.nav__item
+                    a.active(href=url + "/contact/en") Contact
+              div.pb-3
+                h1.title.title--h1.title__separate Skills
+              div.pb-0
+                div.box-inner.box-inner--rounded
+                  div.row
+                    div.col-12.col-lg-6
+                      h2.title.title--h3 Backend
+                      div.box.box__second
+                        each skill in skills
+                          if skill.type == "backend"
+                            div.progress
+                              div.progress-bar(role="progressbar", aria-valuenow=skill.rating, aria-valuemin="0", aria-valuemax="100")
+                                div.progress-text
+                                  span #{skill.name}
+                                  span #{skill.rating} %
+                    div.col-12.col-lg-6
+                      h2.title.title--h3 Frontend
+                      div.box.box__second
+                        each skill in skills
+                          if skill.type == "frontend"
+                            div.progress
+                              div.progress-bar(role="progressbar", aria-valuenow=skill.rating, aria-valuemin="0", aria-valuemax="100")
+                                div.progress-text
+                                  span #{skill.name}
+                                  span #{skill.rating} %
+                  div.row.rowStyle
+                    div.col-12.col-lg-6
+                      h2.title.title--h3 Databases
+                      div.box.box__second
+                        each skill in skills
+                          if skill.type == "database"
+                            div.progress
+                              div.progress-bar(role="progressbar", aria-valuenow=skill.rating, aria-valuemin="0", aria-valuemax="100")
+                                div.progress-text
+                                  span #{skill.name}
+                                  span #{skill.rating} %
+                    div.col-12.col-lg-6
+                      h2.title.title--h3 Templates
+                      div.box.box__second
+                        each skill in skills
+                          if skill.type == "template"
+                            div.progress
+                              div.progress-bar(role="progressbar", aria-valuenow=skill.rating, aria-valuemin="0", aria-valuemax="100")
+                                div.progress-text
+                                  span #{skill.name}
+                                  span #{skill.rating} %
+                  div.row.rowStyle
+                    div.col-12.col-lg-6
+                      h2.title.title--h3 Languages
+                      div.box.box__second
+                        each skill in skills
+                          if skill.type == "language"
+                            div.progress
+                              div.progress-bar(role="progressbar", aria-valuenow=skill.rating, aria-valuemin="0", aria-valuemax="100")
+                                div.progress-text
+                                  span #{skill.name}
+                                  span #{skill.rating} %

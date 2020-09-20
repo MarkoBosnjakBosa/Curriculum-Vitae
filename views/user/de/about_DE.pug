@@ -1,0 +1,118 @@
+doctype html
+html
+  head
+    title Über mich
+    meta(name="description", content="Curriculum Vitae")
+    meta(name="author", content="Marko Bošnjak")
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(href=url + "/images/fav/favicon.ico", rel="icon", type="image/x-icon")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.10.2/css/all.css")
+    link(rel="stylesheet", href="../css/user/defaultStyle.css")
+    link(rel="stylesheet", href="../css/user/darkStyle.css")
+    script(src="https://code.jquery.com/jquery-3.4.1.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+    script(src="../handlers/user/frontendHandlers.js")
+    script(src="../handlers/user/plugins.js")
+  body.bg-triangles
+    div.preloader
+      div.preloader__wrap
+        div.circle-pulse
+          div.circle-pulse__1
+          div.circle-pulse__2
+        div.preloader__progress
+          span
+    main.main
+      div.container.gutter-top
+        div.row.sticky-parent
+          aside.col-12.col-md-12.col-xl-3
+            div.sidebar.box.shadow.pb-0.sticky-column.boxStyle
+              div.avatar
+                img.profilePicture(src=profilePicture, alt="Profilbild")
+              div.text-center
+                h3.title.title--h3.sidebar__user-name
+                  b #{firstName} #{lastName}
+                div.badge.badge--dark #{profession}
+                div.social
+                  a.social__link(href=linkedIn, target="_blank")
+                    i.fab.fa-linkedin-in
+                  a.social__link(href=xing, target="_blank")
+                    i.fab.fa-xing
+                  a.social__link(href=github, target="_blank")
+                    i.fab.fa-github
+                div
+                  a(href=url + "/en")
+                    img.flag(src=url + "/images/flags/americanFlag.png", alt="amerikanische Flagge")
+                  a(href=url + "/de")
+                    img.flag(src=url + "/images/flags/germanFlag.png", alt="deutsche Flagge")
+                div.sidebar__info.box-inner
+                  ul.contacts-block
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Geburtstag")
+                      span.iconSpan
+                        i.far.fa-calendar-alt
+                      span.infoSpan #{birthday}
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Adresse")
+                      span.iconSpan
+                        i.fas.fa-map-marker-alt
+                      span.infoSpan #{location}
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Email")
+                      span.iconSpan
+                        i.fas.fa-envelope
+                      span.infoSpan
+                        a(href="mailto:" + email) #{email}
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Telefon")
+                      span.iconSpan
+                        i.fas.fa-phone
+                      span.infoSpan #{telephone}
+                  a.btn(href=url + "/downloadCV/de")
+                    i.font-icon.icon-download
+                    span CV herunterladen
+          div.col-12.col-md-12.col-xl-9
+            div.box.shadow.pb-0
+              div.circle-menu
+                div.hamburger
+                  div.line
+                  div.line
+                  div.line
+              div.inner-menu.js-menu
+                ul.nav
+                  li.nav__item
+                    a.active(href=url + "/de") Über mich
+                  li.nav__item
+                    a.active(href=url + "/resume/de") Resümee
+                  li.nav__item
+                    a.active(href=url + "/skills/de") Fähigkeiten
+                  li.nav__item
+                    a.active(href=url + "/portfolio/de") Portfolio
+                  li.nav__item
+                    a.active(href=url + "/contact/de") Kontakt
+              div.pb-0.pb-sm-2
+                h1.title.title--h1.title__separate Über mich
+                p Hallo, mein Name ist Marko Bošnjak und ich bin ein Software- und Web-Entwickler mit Sitz in Köln, Deutschland. Ich verwandle gerne komplexe Probleme in gut gestaltete und benutzerfreundliche Anwendungen und tendiere dazu, meinen Code sauber und organisiert zu halten.
+                p Schon in jungen Jahren war ich von der Technik fasziniert. Die einfache Nutzung eines Computers, Handys oder sogar einer Play Station war nie genug. Ich wollte schon immer wissen, wie die Dinge auf einer tieferen Ebene funktionieren. Warum passieren Dinge? Also fing ich an, mich mit Informatik zu beschäftigen. Während meiner Studienzeit wurde ich immer mehr an der Programmierung interessiert. Schon vor meinem Master-Abschluss begann ich bei TeDev in der Abteilung für technische Unterstützung zu arbeiten, um Wissen zu sammeln und mich weiterzuentwickeln. Derzeit arbeite ich bei der venITure GmbH als Softwareentwickler und erstelle Apps für Jira Server und Cloud.
+                p Neben der Entwicklung habe ich noch einige andere Interessen. Ich spiele gerne Fußball und mache Fitness. Ich bin ein großer Fan von Rockmusik und gehe gerne auf Konzerte, wann immer ich die Gelegenheit dazu habe. Ich mag auch zu reisen, Bücher und Filme.
+                p Wenn Sie sich beim Lesen dieser kurzen Einführung nicht gelangweilt haben, werfen Sie einen Blick auf meinen Lebenslauf und kontaktieren Sie mich. &#128515;
+              div.box-inner.pb-0
+                h2.title.title--h3 Was ich mache
+                div.row
+                  div.col-12.col-lg-6
+                    div.case-item.box.box__second
+                      i.fas.fa-terminal.case-item__icon
+                      div.jobDescriptionSpan
+                        h3.title.title--h5 Backend Entwicklung
+                        p.case-item__caption Kenntnisse in interpretierten und kompilierten Sprachen (Node.js, PHP, Java) sowie MySQL und MongoDB Datenbanken
+                  div.col-12.col-lg-6
+                    div.case-item.box.box__second
+                      i.fas.fa-code.case-item__icon
+                      div.jobDescriptionSpan
+                        h3.title.title--h5 Frontend Entwicklung
+                        p.case-item__caption Verwendung von JavaScript, HTML und CSS für moderne und hochwertige Designs
+                  div.col-12.col-lg-6
+                    div.case-item.box.box__second
+                      i.fas.fa-pencil-alt.case-item__icon
+                      div.jobDescriptionSpan
+                        h3.title.title--h5 Dokumentation
+                        p.case-item__caption Professionelles Schreiben von Dokumentationen, um Anwendungen den Benutzern näher zu bringen

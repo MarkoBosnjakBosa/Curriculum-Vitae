@@ -1,0 +1,118 @@
+doctype html
+html
+  head
+    title Contact
+    meta(name="description", content="Curriculum Vitae")
+    meta(name="author", content="Marko Bošnjak")
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(href=url + "/images/fav/favicon.ico", rel="icon", type="image/x-icon")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.10.2/css/all.css")
+    link(rel="stylesheet", href="../css/user/defaultStyle.css")
+    link(rel="stylesheet", href="../css/user/darkStyle.css")
+    script(src="https://code.jquery.com/jquery-3.4.1.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+    script(src="../handlers/user/frontendHandlers.js")
+    script(src="../handlers/user/plugins.js")
+    script(src="../handlers/user/map.js")
+    script(src="https://maps.googleapis.com/maps/api/js?key=" + googleMapsKey)
+  body.bg-triangles
+    div.preloader
+      div.preloader__wrap
+        div.circle-pulse
+          div.circle-pulse__1
+          div.circle-pulse__2
+        div.preloader__progress
+          span
+    main.main
+      div.container.gutter-top
+        div.row.sticky-parent
+          aside.col-12.col-md-12.col-xl-3
+            div.sidebar.box.shadow.pb-0.sticky-column.boxStyle
+              div.avatar
+                img.profilePicture(src=profilePicture, alt="Profile picture")
+              div.text-center
+                h3.title.title--h3.sidebar__user-name
+                  b #{firstName} #{lastName}
+                div.badge.badge--dark #{profession}
+                div.social
+                  a.social__link(href=linkedIn, target="_blank")
+                    i.fab.fa-linkedin-in
+                  a.social__link(href=xing, target="_blank")
+                    i.fab.fa-xing
+                  a.social__link(href=github, target="_blank")
+                    i.fab.fa-github
+                div
+                  a(href=url + "/contact/en")
+                    img.flag(src=url + "/images/flags/americanFlag.png", alt="American flag")
+                  a(href=url + "/contact/de")
+                    img.flag(src=url + "/images/flags/germanFlag.png", alt="German flag")
+                div.sidebar__info.box-inner
+                  ul.contacts-block
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Birthday")
+                      span.iconSpan
+                        i.far.fa-calendar-alt
+                      span.infoSpan #{birthday}
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Address")
+                      span.iconSpan
+                        i.fas.fa-map-marker-alt
+                      span.infoSpan #{location}
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="E-mail")
+                      span.iconSpan
+                        i.fas.fa-envelope
+                      span.infoSpan
+                        a(href="mailto:" + email) #{email}
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Telephone")
+                      span.iconSpan
+                        i.fas.fa-phone
+                      span.infoSpan #{telephone}
+                  a.btn(href=url + "/downloadCV/en")
+                    i.font-icon.icon-download
+                    span Download CV
+          div.col-12.col-md-12.col-xl-9
+            div.box.shadow.pb-0
+              div.circle-menu
+                div.hamburger
+                  div.line
+                  div.line
+                  div.line
+              div.inner-menu.js-menu
+                ul.nav
+                  li.nav__item
+                    a.active(href=url + "/en") About
+                  li.nav__item
+                    a.active(href=url + "/resume/en") Resume
+                  li.nav__item
+                    a.active(href=url + "/skills/en") Skills
+                  li.nav__item
+                    a.active(href=url + "/portfolio/en") Portfolio
+                  li.nav__item
+                    a.active(href=url + "/contact/en") Contact
+              div.pb-2
+                h1.title.title--h1.title__separate Contact
+                div#map.map
+                h2.title.title--h3 Contact Form
+                form#contactForm.contact-form(method="POST", autocomplete="false", data-toggle="validator")
+                  input#language(type="hidden", name="language", value="en")
+                  div.row
+                    div.form-group.col-12.col-md-6
+                      i.fas.fa-user.font-group.font-icon
+                      input#name.input.input__icon.form-control(type="text", name="name", placeholder="Full name" required="required", oninvalid="setCustomValidity('Enter your name')", onkeyup="setCustomValidity('')", autocomplete="new-password")
+                      div.help-block.with-errors
+                    div.form-group.col-12.col-md-6
+                      i.far.fa-envelope.font-group.font-icon
+                      input#email.input.input__icon.form-control(type="email", name="email", placeholder="Email address", required="required", oninvalid="setCustomValidity('Enter your email')", onkeyup="setCustomValidity('')", autocomplete="new-password")
+                      div.help-block.with-errors
+                    div.form-group.col-12.col-md-12
+                      textarea#message.textarea.form-control(name="messageContact", placeholder="Your message", rows="4", required="required," oninvalid="setCustomValidity('Enter your message')", onkeyup="setCustomValidity('')")
+                      div.help-block.with-errors
+                  div.row
+                    div.col-12.col-md-6.order-2.order-md-1.text-center.text-md-left
+                      div#validator-contact.hidden
+                    div.col-12.col-md-6.order-1.order-md-2.text-right
+                      button.btn(type="submit")
+                        i.fas.fa-paper-plane.font-group.font-icon
+                        span Send Message

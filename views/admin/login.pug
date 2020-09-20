@@ -1,0 +1,54 @@
+doctype html
+html
+  head
+    title Login
+    meta(name="description", content="Curriculum Vitae")
+    meta(name="author", content="Marko Bošnjak")
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(href=url + "/images/fav/favicon.ico", rel="icon", type="image/x-icon")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.10.2/css/all.css")
+    link(rel="stylesheet", href="../../css/admin/login.css")
+    script(src="https://code.jquery.com/jquery-3.4.1.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+    script(src="../../handlers/admin/loginHandlers.js")
+  body
+    div#loginErrorMessage.alert.alert-danger.alert-dismissible.fade.show
+      strong
+      button#hideLoginErrorMessage.close(type="button")
+        span(aria-hidden="true") &times;
+    div#loginSuccessMessage.alert.alert-success.alert-dismissible.fade.show
+      strong
+      button#hideLoginSuccessMessage.close(type="button")
+        span(aria-hidden="true") &times;
+    form#loginForm(method="POST", autocomplete="off")
+      div.mb-4
+        div.lockIcon
+          i.fas.fa-lock.fa-7x
+        div.form-group
+          input#login.form-control(type="text", name="login", placeholder="Username / Email")
+          span#loginStatus
+        div.form-group
+          input#password.form-control(type="password", name="password", placeholder="Password")
+        div.form-row.resetLinkDiv
+          a(href="#", data-toggle="modal", data-target="#resetLinkModal") Forgot password?
+        div.form-row
+        button.btn.btn-lg.btn-primary.btn-block(type="submit") Log in
+    div#resetLinkModal.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
+      form#resetLinkForm(method="POST", autocomplete="off")
+        div.modal-dialog.modal-dialog-centered(role="document")
+          div.modal-content
+            div.modal-header
+              h5.modal-title Reset password
+              button.close(type="button", data-dismiss="modal", aria-label="Close")
+                span(aria-hidden="true") &times
+            div.modal-body
+              p A reset link will be sent to your email address.
+              div.form-group
+                input#email.form-control(type="email", name="email", placeholder="Email")
+            div.modal-footer
+              button#closeResetLinkModalButton.btn.btn-secondary(type="button", data-dismiss="modal") Cancel
+              button#resetLinkButton.btn.btn-primary(type="submit") Send

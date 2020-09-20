@@ -1,0 +1,91 @@
+body{
+  overflow-x: hidden;
+}
+#sidebar-wrapper{
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+#sidebar-wrapper .sidebar-heading{
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+#sidebar-wrapper .list-group{
+  width: 15rem;
+}
+#page-content-wrapper{
+  min-width: 100vw;
+}
+#wrapper.toggled #sidebar-wrapper{
+  margin-left: 0;
+}
+@media (min-width: 768px){
+  #sidebar-wrapper{
+    margin-left: 0;
+  }
+  #page-content-wrapper{
+    min-width: 0;
+    width: 100%;
+  }
+  #wrapper.toggled #sidebar-wrapper{
+    margin-left: -15rem;
+  }
+}
+#menu-toggle{
+  width: 50px;
+}
+.editPersonalInformationTitle{
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.profilePicture{
+  width: 100px;
+  height:100px;
+  border: 1px solid;
+}
+.inputFile{
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputFile + label{
+  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+  color: #808080;
+  border: 2px solid #808080;
+}
+.inputFile:focus + label, .inputFile.has-focus + label, .inputFile + label:hover{
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+  color: #000;
+}
+.inputFile + fas.fa-upload{
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  margin-right: 0.25em;
+}
+#editPersonalInformationForm{
+  max-width: 800px;
+  margin: 0 auto;
+}
+#editPersonalInformationErrorMessage, #editPersonalInformationSuccessMessage{
+  display: none;
+  text-align: center;
+}

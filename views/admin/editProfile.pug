@@ -1,0 +1,116 @@
+doctype html
+html
+  head
+    title Edit profile
+    meta(name="description", content="Curriculum Vitae")
+    meta(name="author", content="Marko Bošnjak")
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(href=url + "/images/fav/favicon.ico", rel="icon", type="image/x-icon")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.10.2/css/all.css")
+    link(rel="stylesheet", href="../../css/admin/editProfile.css")
+    script(src="https://code.jquery.com/jquery-3.4.1.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+    script(src="../../handlers/admin/editProfileHandlers.js")
+  body
+    div#wrapper.d-flex
+      div#sidebar-wrapper.bg-light.border-right
+        div.sidebar-heading Administration
+        div.list-group.list-group-flush
+          a.list-group-item.list-group-item-action.bg-light(href=url + "/admin/profile") Profile
+          a.list-group-item.list-group-item-action.bg-light(href=url + "/admin/resume") Resume
+          a.list-group-item.list-group-item-action.bg-light(href=url + "/admin/skills") Skills
+          a.list-group-item.list-group-item-action.bg-light(href=url + "/admin/portfolio") Portfolio
+          a.list-group-item.list-group-item-action.bg-light(href=url + "/admin/contact") Contact
+      div#page-content-wrapper
+        nav.navbar.navbar-expand-lg.navbar-light.bg-light.border-bottom
+          button#menu-toggle.btn.btn-secondary
+            i.fas.fa-angle-double-left
+          button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation")
+            span.navbar-toggler-icon
+          div#navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.ml-auto.mt-2.mt-lg-0
+              li.nav-item.dropdown
+                a#navbarDropdown.nav-link.active.dropdown-toggle(href="#", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") #{username}
+                div.dropdown-menu.dropdown-menu-right(aria-labelledby="navbarDropdown")
+                  a.dropdown-item.profileLink(href=url + "/admin/profile") Profile
+                  a.dropdown-item.changePasswordLink(href=url + "/admin/change/password") Change password
+                  a.dropdown-item.logOutLink(href="#") Log out
+        div.container-fluid
+          div#editPersonalInformationErrorMessage.alert.alert-danger.alert-dismissible.fade.show
+            strong
+            button#hideEditPersonalInformationErrorMessage.close(type="button")
+              span(aria-hidden="true") &times;
+          div#editPersonalInformationSuccessMessage.alert.alert-success.alert-dismissible.fade.show
+            strong
+            button#hideEditPersonalInformationSuccessMessage.close(type="button")
+              span(aria-hidden="true") &times;
+          div.editPersonalInformationTitle
+            h1 Personal information:
+          div.row
+            div.col-sm-2
+              div(style="text-align: center")
+                img#profilePictureDiv.rounded-circle.profilePicture(src="", alt="Profile Picture")
+              hr
+              form#updateProfilePictureForm(method="POST", enctype="multipart/form-data", autocomplete="off")
+                input#profilePicture.inputFile(type="file", name="profilePicture")
+                label(for="profilePicture")
+                  i.fas.fa-upload
+                  span#profilePictureName(style="margin-left: 5px") Choose a picture
+                button.btn.btn-primary.active.btn-block(type="submit") Submit
+            div.col-sm-6
+              form#updatePersonalInformationForm(method="POST", autocomplete="off")
+                div.form-row
+                  div.form-group.col-md-6
+                    label(for="firstName") First Name:
+                    input#firstName.form-control(type="text", name="firstName")
+                  div.form-group.col-md-6
+                    label(for="lastName") Last Name:
+                    input#lastName.form-control(type="text", name="lastName")
+                div.form-row
+                  div.form-group.col-md-6
+                    label(for="Email") Email:
+                    input#email.form-control(type="email", name="email")
+                  div.form-group.col-md-6
+                    label(for="telephone") Telephone:
+                    input#telephone.form-control(type="text", name="telephone")
+                div.form-row
+                  div.form-group.col-md-6
+                    label(for="profession") Profession:
+                    input#profession.form-control(type="text", name="profession")
+                  div.form-group.col-md-6
+                    label(for="profession_de") Profession DE:
+                    input#profession_de.form-control(type="text", name="profession_de")
+                div.form-row
+                  div.form-group.col-md-6
+                    label(for="birthday") Birthday:
+                    input#birthday.form-control(type="text", name="birthday")
+                  div.form-group.col-md-6
+                    label(for="birthday_de") Birthday DE:
+                    input#birthday_de.form-control(type="text", name="birthday_de")
+                div.form-row
+                  div.form-group.col-md-6
+                    label(for="location") Location:
+                    input#location.form-control(type="text", name="location")
+                  div.form-group.col-md-6
+                    label(for="location_de") Location DE:
+                    input#location_de.form-control(type="text", name="location_de")
+                div.form-row
+                  div.form-group.col-md-6
+                    label(for="linkedIn") linkedIn:
+                    input#linkedIn.form-control(type="url", name="linkedIn")
+                  div.form-group.col-md-6
+                    label(for="xing") Xing:
+                    input#xing.form-control(type="url", name="xing")
+                div.form-row
+                  div.form-group.col-md-6
+                    label(for="github") GitHub:
+                    input#github.form-control(type="url", name="github")
+                div.form-row
+                  div.col-md-6(style="text-align: right")
+                    button.btn.btn-lg.btn-danger(type="reset") Reset
+                  div.col-md-6
+                    button.btn.btn-lg.btn-primary(type="submit") Submit

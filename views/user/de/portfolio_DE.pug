@@ -1,0 +1,148 @@
+doctype html
+html
+  head
+    title Portfolio
+    meta(name="description", content="Curriculum Vitae")
+    meta(name="author", content="Marko Bošnjak")
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(href=url + "/images/fav/favicon.ico", rel="icon", type="image/x-icon")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.10.2/css/all.css")
+    link(rel="stylesheet", href="../css/user/defaultStyle.css")
+    link(rel="stylesheet", href="../css/user/darkStyle.css")
+    script(src="https://code.jquery.com/jquery-3.4.1.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+    script(src="../handlers/user/frontendHandlers.js")
+    script(src="../handlers/user/plugins.js")
+  body.bg-triangles
+    div.preloader
+      div.preloader__wrap
+        div.circle-pulse
+          div.circle-pulse__1
+          div.circle-pulse__2
+        div.preloader__progress
+          span
+    main.main
+      div.container.gutter-top
+        div.row.sticky-parent
+          aside.col-12.col-md-12.col-xl-3
+            div.sidebar.box.shadow.pb-0.sticky-column.boxStyle
+              div.avatar
+                img.profilePicture(src=admin.profilePicture, alt="Profilbild")
+              div.text-center
+                h3.title.title--h3.sidebar__user-name
+                  b #{admin.firstName} #{admin.lastName}
+                div.badge.badge--dark #{admin.profession}
+                div.social
+                  a.social__link(href=admin.linkedIn, target="_blank")
+                    i.fab.fa-linkedin-in
+                  a.social__link(href=admin.xing, target="_blank")
+                    i.fab.fa-xing
+                  a.social__link(href=admin.github, target="_blank")
+                    i.fab.fa-github
+                div
+                  a(href=url + "/portfolio/en")
+                    img.flag(src=url + "/images/flags/americanFlag.png", alt="amerikanische Flagge")
+                  a(href=url + "/portfolio/de")
+                    img.flag(src=url + "/images/flags/germanFlag.png", alt="deutsche Flagge")
+                div.sidebar__info.box-inner
+                  ul.contacts-block
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Geburtstag")
+                      span.iconSpan
+                        i.far.fa-calendar-alt
+                      span.infoSpan #{admin.birthday}
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Adresse")
+                      span.iconSpan
+                        i.fas.fa-map-marker-alt
+                      span.infoSpan #{admin.location}
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Email")
+                        span.iconSpan
+                          i.fas.fa-envelope
+                        span.infoSpan
+                          a(href="mailto:" + admin.email) #{admin.email}
+                    li.contacts-block__item(data-toggle="tooltip", data-placement="top", title="Telefon")
+                      span.iconSpan
+                        i.fas.fa-phone
+                      span.infoSpan #{admin.telephone}
+                  a.btn(href=url + "/downloadCV/de")
+                    i.font-icon.icon-download
+                    span CV herunterladen
+          div.col-12.col-md-12.col-xl-9
+            div.box.shadow.pb-0
+              div.circle-menu
+                div.hamburger
+                  div.line
+                  div.line
+                  div.line
+              div.inner-menu.js-menu
+                ul.nav
+                  li.nav__item
+                    a.active(href=url + "/de") Über mich
+                  li.nav__item
+                    a.active(href=url + "/resume/de") Resümee
+                  li.nav__item
+                    a.active(href=url + "/skills/de") Fähigkeiten
+                  li.nav__item
+                    a.active(href=url + "/portfolio/de") Portfolio
+                  li.nav__item
+                    a.active(href=url + "/contact/de") Kontakt
+              div.pb-3
+                h1.title.title--h1.title__separate Portfolio
+              div.pb-0
+                div.select
+                  span.placeholder Wähle Kategorie aus
+                  ul.filter
+                    li.filter__item Kategorie
+                    li.filter__item.active(data-filter="*")
+                      a.filter__link.active(href="#filter") Alle
+                    li.filter__item(data-filter=".category-jiraServer")
+                      a.filter__link(href="#filter") Jira Server
+                    li.filter__item(data-filter=".category-jiraCloud")
+                      a.filter__link(href="#filter") Jira Cloud
+                    li.filter__item(data-filter=".category-personalProjects")
+                      a.filter__link(href="#filter") Persönliche Projekte
+                    li.filter__item(data-filter=".category-masterThesis")
+                      a.filter__link(href="#filter") Masterarbeit
+                  input(type="hidden", name="changemetoo")
+                div.gallery-grid.js-masonry.js-filter-container
+                  div.gutter-sizer
+                  each portfolio in portfolios
+                    if portfolio.type == "jiraServer"
+                      figure.gallery-grid__item.category-jiraServer
+                        div.gallery-grid__image-wrap
+                          img.gallery-grid__image.cover.lazyload(src=portfolio.logo, alt=portfolio.name_de, data-zoom)
+                        figcaption.gallery-grid__caption
+                          h4.title.gallery-grid__title #{portfolio.name}
+                            a(href=portfolio.link, target="_blank")
+                              i.fas.fa-external-link-alt
+                          span.gallery-grid__category Jira Server
+                    if portfolio.type == "jiraCloud"
+                      figure.gallery-grid__item.category-jiraCloud
+                        div.gallery-grid__image-wrap
+                          img.gallery-grid__image.cover.lazyload(src=portfolio.logo, alt=portfolio.name_de, data-zoom)
+                        figcaption.gallery-grid__caption
+                          h4.title.gallery-grid__title #{portfolio.name}
+                            a(href=portfolio.link, target="_blank")
+                              i.fas.fa-external-link-alt
+                          span.gallery-grid__category Jira Cloud
+                    if portfolio.type == "personalProject"
+                      figure.gallery-grid__item.category-personalProjects
+                        div.gallery-grid__image-wrap
+                          img.gallery-grid__image.cover.lazyload(src=portfolio.logo, alt=portfolio.name_de, data-zoom)
+                        figcaption.gallery-grid__caption
+                          h4.title.gallery-grid__title #{portfolio.name}
+                            a(href=portfolio.link, target="_blank")
+                              i.fas.fa-external-link-alt
+                          span.gallery-grid__category Persönliche Projekte
+                    if portfolio.type == "masterThesis"
+                      figure.gallery-grid__item.category-masterThesis
+                        div.gallery-grid__image-wrap
+                          img.gallery-grid__image.cover.lazyload(src=portfolio.logo, alt=portfolio.name_de, data-zoom)
+                        figcaption.gallery-grid__caption
+                          h4.title.gallery-grid__title #{portfolio.name}
+                            a(href=portfolio.link, target="_blank")
+                              i.fas.fa-external-link-alt
+                          span.gallery-grid__category Masterarbeit
